@@ -1,0 +1,35 @@
+body{
+    margin : 0;
+    padding : 0;
+    font-family: 'Delicious Handrawn', cursive;
+    background-color:#F2EDD7FF;
+    color: #F2EDD7FF;
+}
+
+#form-container{
+    border: 5px solid #755139FF;
+    border-radius: 4%;
+    margin:50px 20% 50px 20%;
+    padding: 20px 10% 20px 10%;
+    background-color: #755139FF;
+    font-size: large;
+}
+
+#form-container h1{
+    
+    text-align: center;
+    text-decoration: underline;
+
+}
+
+#productName #productCode #productQty #productUnitPrice #productImage{
+    border:2px solid white;
+    border-radius: 5%;
+}
+
+#btn{
+    padding:10px;
+    border-radius: 5px;
+    font-family: 'Delicious Handrawn', cursive;
+    font-size: large;
+}

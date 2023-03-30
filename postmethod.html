@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="postmethod.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div id = "form-container">
+        <h1>Product Information</h1>
+        <form>
+            <label>Product Name</label>
+            <input type="text" id = "productName"> <br><br>
+
+            <label>Product Code</label>
+            <input type="text" id = "productCode"> <br><br>
+
+            <label>Product Quantity</label>
+            <input type="number" id = "productQty"> <br><br>
+
+            <label>Unit Price</label>
+            <input type="number" id = "productUnitPrice"> <br><br>
+
+            <label>Product Image</label>
+            <input type="file" accept = "image/*" id = "productImage"><br><br><br>
+        </form>
+
+        <br>
+     
+            <button id = "btn" onclick = "postData()">Submit</button>
+
+    </div>
+
+    <script>
+        function postData(){
+            var name = document.getElementById('productName').value;
+            //console.log(name);
+            var code = document.getElementById('productCode').value;
+            var quantity = document.getElementById('productQty').value;
+            var unitPrice = document.getElementById('productUnitPrice').value;
+            var tempUnitPrice = parseFloat(unitPrice);
+            var tempQuantity = parseFloat(quantity);
+            var totalPrice = tempUnitPrice*tempQuantity;
+            //console.log(totalprice);
+
+
+            var url = "https://crud.teamrabbil.com/api/v1/createProduct";
+            var data = {
+                img :"A",
+                
+                productCode : code,
+                productName : name,
+                productQuantity : quantity,
+                productUnitPrice : unitPrice,
+                productTotalPrice : totalPrice,
+                
+               
+
+            };
+            var config = {
+                method : "POST",
+                headers : {
+                    'Accept' : 'application/json',
+                    'Content-Type' : 'application/json'
+                },
+                body : JSON.stringify(data)
+            };
+
+            fetch(url,config)
+            .then(response => response.json())
+            .then(result => console.log(result))
+            .catch(err => console.log(err))
+        }
+
+
+
+
+
+        
+    </script>
+</body>
+</html>
